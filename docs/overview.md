@@ -18,6 +18,20 @@ PostgreSQL — AWS RDS
 
 The frontend and backend are decoupled. In development, Vite proxies `/api` requests to the FastAPI server. In production, both are served from Elastic Beanstalk (frontend as static files, backend as the API).
 
+## Local Development
+
+Use `dev.ps1` to spin up the full local stack in one command:
+
+```powershell
+.\dev.ps1
+```
+
+This opens two terminal windows:
+- **Backend** at `http://localhost:8000` — FastAPI with hot reload, connected to `shannav_dev` on RDS
+- **Frontend** at `http://localhost:5173` — Vite dev server with hot reload, proxies API calls to the backend
+
+Requires `.env` in the project root (copy from `.env.example` and fill in credentials).
+
 ## Docs Index
 
 - [Backend](./backend.md) — FastAPI app, models, routes, schemas, database
