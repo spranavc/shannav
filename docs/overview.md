@@ -20,15 +20,17 @@ The frontend and backend are decoupled. In development, Vite proxies `/api` requ
 
 ## Local Development
 
-Use `dev.ps1` to spin up the full local stack in one command:
+All scripts live in `scripts/` and are written for Git Bash.
 
-```powershell
-.\dev.ps1
+```bash
+bash scripts/dev.sh            # start backend + frontend
+bash scripts/dev-teardown.sh   # stop both servers
+bash scripts/deploy.sh dev     # deploy to dev environment
+bash scripts/deploy.sh prod    # deploy to prod environment
 ```
 
-This opens two terminal windows:
-- **Backend** at `http://localhost:8000` — FastAPI with hot reload, connected to `shannav_dev` on RDS
-- **Frontend** at `http://localhost:5173` — Vite dev server with hot reload, proxies API calls to the backend
+- **Backend** runs at `http://localhost:8000` — FastAPI with hot reload, connected to `shannav_dev` on RDS
+- **Frontend** runs at `http://localhost:5173` — Vite dev server with hot reload, proxies API calls to the backend
 
 Requires `.env` in the project root (copy from `.env.example` and fill in credentials).
 

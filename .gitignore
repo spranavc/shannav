@@ -9,6 +9,8 @@ dist/
 
 # Environment
 .env
+.dev-pids
+frontend/.env
 
 # Frontend
 frontend/node_modules/
